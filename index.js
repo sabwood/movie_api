@@ -68,21 +68,10 @@ let topMovies = [
     }
 ];
 
-let myLogger = (req, res, next) => {
-    console.log(req.url);
-    next();
-};
-
-app.use(myLogger);
-
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.send('Welcome to myFlix application!');
-});
-
-app.get('/documentation', (req, res) => {
-    res.sendFile('public/documentation.html', { root: __dirname});
 });
 
 app.get('/movies', (req, res) => {
