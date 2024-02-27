@@ -8,5 +8,104 @@
     <body>
         <h1>Documentation: Movie API</h1>
         <p>A server-side component of a "movies" web application. The web application will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Business Logic</th>
+                    <th>URL</th>
+                    <th>HTTP Method</th>
+                    <th>Request Body Data Format</th>
+                    <th>Response Body Data Format</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Get a list of all movies</td>
+                    <td>/movies</td>
+                    <td>GET</td>
+                    <td>None</td>
+                    <td>A JSON object holding data about all movies.</td>
+                </tr>
+                <tr>
+                    <td>Get data about a single movie by title</td>
+                    <td>/movies/[title]</td>
+                    <td>GET</td>
+                    <td>None</td>
+                    <td>A JSON object holding data about a single movie, containing the title, release year, and director.</td>
+                </tr>
+                <tr>
+                    <td>Get data about a genre by movie title</td>
+                </tr>
+                <tr>
+                    <td>Get data about a director by name</td>
+                    <td>/movies/directors/[directorName]</td>
+                    <td>GET</td>
+                    <td>None</td>
+                    <td>A JSON object holding data about a single director, containing director name, biography, birth year, and death year.</td>
+                </tr>
+                <tr>
+                    <td>Add new user</td>
+                    <td>/users</td>
+                    <td>POST</td>
+                    <td>A JSON object holding data about the user to add, structured like:
+                        {
+                            'username': 'exampleUsername',
+                            'Name': 'exampleName',
+                            'favoriteMovies': []
+                        }
+                    </td>
+                    <td>A JSON object holding data about the user that was added, including an ID. Example:
+                        {
+                            'id': '#####',
+                            'username': 'exampleUsername',
+                            'Name': 'exampleName',
+                            'favoriteMovies': []
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>Allow users to update their username</td>
+                    <td>/users/[id]</td>
+                    <td>PUT</td>
+                    <td>A JSON object holding data about the user which needs to be updated. Example:
+                        {
+                            'id': '#####',
+                            'username': 'newUsername',
+                            'name': 'exampleName',
+                            'favoriteMovies': []
+                        }
+                    </td>
+                    <td>A JSON object holding data about the updated user information. Example:
+                        {
+                            'id': '#####',
+                            'username': 'newUsername',
+                            'name': 'exampleName',
+                            'favoriteMovies': []
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>Allow users to add a movie to their favorites list</td>
+                    <td>/users/[id]/[movieTitle]</td>
+                    <td>PUT</td>
+                    <td>None</td>
+                    <td>A text message indicating whether the user added the movie to their favorites list successfully.</td>
+                </tr>
+                <tr>
+                    <td>Allow users to remove a movie from their favorites list</td>
+                    <td>/users/[id]/[movieTitle]</td>
+                    <td>DELETE</td>
+                    <td>None</td>
+                    <td>A text message indicating whether the user removed the movie from their favorites list successfully.</td>
+                </tr>
+                <tr>
+                    <td>Allow existing users to deregister</td>
+                    <td>/users/[id]</td>
+                    <td>DELETE</td>
+                    <td>None</td>
+                    <td>A text message indicating whether the user deregistered unsuccessfully.</td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>
