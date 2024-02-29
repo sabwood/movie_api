@@ -11,7 +11,7 @@ app.use(morgan('common'));
 
 let users = [
     {
-        id: 1,
+        id: '1',
         username: 'exampleUsername',
         name: 'exampleName',
         favoriteMovies: ['movieOne']
@@ -221,7 +221,7 @@ app.put('/users/:id/:movieTitle', (req, res) => {
         res.status(400).send('There is no such user.')
     } else {
         user.favoriteMovies.push(movieTitle);
-        res.status(200).send(movieTitle + 'has been added to ' + id + '\'s favorite\'s list.');
+        res.status(200).send(movieTitle + ' has been added to ' + id + '\'s favorite\'s list.');
     }
 });
 
@@ -235,7 +235,7 @@ app.delete('/users/:id/:movieTitle', (req,res) => {
         res.status(400).send('There is no such user.')
     } else {
         user.favoriteMovies = user.favoriteMovies.filter((title) => title !== movieTitle);
-        res.status(200).send(movieTitle + 'has been removed from ' + id + '\'s favorite\'s list.');
+        res.status(200).send(movieTitle + ' has been removed from ' + id + '\'s favorite\'s list.');
     }
 });
 
