@@ -211,7 +211,7 @@ app.put('/users/:id', (req,res) => {
     }
 });
 
-app.put('/users/:id/:movieTitle', (req, res) => {
+app.post('/users/:id/:movieTitle', (req, res) => {
     let id = req.params.id;
     let movieTitle = req.params.movieTitle;
 
