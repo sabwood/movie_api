@@ -53,17 +53,20 @@
                     <td>POST</td>
                     <td>A JSON object holding data about the user to add, structured like:
                         {
-                            'username': 'exampleUsername',
-                            'Name': 'exampleName',
-                            'favoriteMovies': []
+                            'Username': 'exampleUsername',
+                            'Password': 'examplePassword',
+                            'Email': 'example@fakeemail.com',
+                            'Birthday': 'yyyy-mm-dd'
                         }
                     </td>
                     <td>A JSON object holding data about the user that was added, including an ID. Example:
                         {
-                            'id': '#####',
-                            'username': 'exampleUsername',
-                            'Name': 'exampleName',
-                            'favoriteMovies': []
+                            'Username': 'exampleUsername',
+                            'Password': 'examplePassword',
+                            'Email': 'example@fakeemail.com',
+                            'Birthday': 'yyyy-mm-dd',
+                            'favoriteMovies': [],
+                            'id': '#####'
                         }
                     </td>
                 </tr>
@@ -73,17 +76,19 @@
                     <td>PUT</td>
                     <td>A JSON object holding data about the user which needs to be updated. Example:
                         {
-                            'id': '#####',
-                            'username': 'newUsername',
-                            'name': 'exampleName',
-                            'favoriteMovies': []
+                            'Username': 'updatedUsername',
+                            'Password': 'examplePassword',
+                            'Email': 'example@fakeemail.com',
+                            'Birthday': 'yyyy-mm-dd'
                         }
                     </td>
                     <td>A JSON object holding data about the updated user information. Example:
                         {
                             'id': '#####',
-                            'username': 'newUsername',
-                            'name': 'exampleName',
+                            'Username': 'exampleUsername',
+                            'Password': 'examplePassword',
+                            'Email': 'example@fakeemail.com',
+                            'Birthday': 'yyyy-mm-dd',
                             'favoriteMovies': []
                         }
                     </td>
