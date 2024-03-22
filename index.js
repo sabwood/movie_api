@@ -12,7 +12,7 @@ morgan = require('morgan');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
 let auth = require('./auth.js')(app);
 
@@ -103,8 +103,7 @@ app.post('/users', async (req,res) => {
             if (user) {
                 return res.status(400).send(req.body.Username + 'already exists');
             } else {
-                Users
-                    .create({
+                Users.create({
                         Username: req.body.Username,
                         Password: req.body.Password,
                         Email: req.body.Email,
