@@ -31,21 +31,52 @@
                     <td>/movies/[title]</td>
                     <td>GET</td>
                     <td>None</td>
-                    <td>A JSON object holding data about a single movie, containing the title, release year, and director.</td>
+                    <td>A JSON object holding data about a single movie, containing the title, description, genre, and director. Structured like:
+                        {
+                            _id: ObjectId
+                            Title: string,
+                            Description: string,
+                            Genre: {
+                                Name: string,
+                                Description: string
+                            },
+                            Director: {
+                                Name: string,
+                                Bio: string,
+                                Birth: string
+                            }
+                        }
+
+                    </td>
                 </tr>
                 <tr>
                     <td>Get data about a genre by movie title</td>
                     <td>/movies/genre/[genreName]</td>
                     <td>GET</td>
                     <td>None</td>
-                    <td>A JSON object holding data about a single genre, containing a genre name and description.</td>
+                    <td>A JSON object holding data about a single genre, containing a genre name and description. Structured like:
+                        {
+                            Genre: {
+                                Name: string,
+                                Description: string
+                            }
+                        }
+                    </td>
                 </tr>
                 <tr>
                     <td>Get data about a director by name</td>
                     <td>/movies/directors/[directorName]</td>
                     <td>GET</td>
                     <td>None</td>
-                    <td>A JSON object holding data about a single director, containing director name, biography, birth year, and death year.</td>
+                    <td>A JSON object holding data about a single director, containing director name, biography, birth year, and death year. Structured like: 
+                        {
+                            Director: {
+                                Name: string,
+                                Bio: string,
+                                Birth: string
+                            }
+                        }
+                    </td>
                 </tr>
                 <tr>
                     <td>Add new user</td>
