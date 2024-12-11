@@ -41,12 +41,16 @@ app.use(morgan('common'));
 
 app.use(express.static('public'));
 
-/** GET welcome page */
+/**
+ * @summary GET welcome page
+*/
 app.get('/', (req, res) => {
     res.send('Welcome to myFlix application!');
 });
 
-/** GET all movies */
+/**
+ * @summary GET all movies
+ */
 app.get('/movies', passport.authenticate('jwt', { session: false }), async (req, res) => {
     await Movies.find()
         .then((movies) => {
@@ -58,7 +62,9 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), async (req,
         });
 });
 
-/** GET movie by movie title */
+/**
+ * @summary GET movie by movie title
+ */
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), async (req, res) => {
     await Movies.findOne({ Title: req.params.Title })
         .then((title) => {
@@ -70,7 +76,9 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), asyn
         });
 });
 
-/** GET movies by movie genre */
+/** 
+ * @summary GET movies by movie genre
+ */
 app.get('/movies/genre/:genreName', passport.authenticate('jwt', { session: false }), async (req, res) => {
     await Movies.find({ 'Genre.Name': req.params.genreName })
         .then((movies) => {
@@ -82,7 +90,9 @@ app.get('/movies/genre/:genreName', passport.authenticate('jwt', { session: fals
         });
 });
 
-/** GET movies by director name */
+/**
+ * @summary GET movies by director name
+ */
 app.get('/movies/directors/:directorName', passport.authenticate('jwt', { session: false }), async (req, res) => {
     await Movies.find({ 'Director.Name': req.params.directorName })
         .then((movies) => {
@@ -94,7 +104,9 @@ app.get('/movies/directors/:directorName', passport.authenticate('jwt', { sessio
         });
 });
 
-/** GET users */
+/**
+ * @summary GET users
+ */
 app.get('/users', passport.authenticate('jwt', { session: false }), async (req, res) => {
     await Users.find()
         .then((users) => {
@@ -106,7 +118,9 @@ app.get('/users', passport.authenticate('jwt', { session: false }), async (req, 
         });
 });
 
-/** GET user by username */
+/**
+ * @summary GET user by username
+ */
 app.get('/users/:Username', passport.authenticate('jwt', { session: false }), async (req, res) => {
     if (req.user.Username !== req.params.Username) {
         return res.status(400).send('Permission denied');
@@ -122,7 +136,9 @@ app.get('/users/:Username', passport.authenticate('jwt', { session: false }), as
         });
 });
 
-/** POST new user */
+/**
+ * @summary POST new user
+ */
 app.post('/users',
     [
         check('Username', 'Username is required').isLength({ min: 5 }),
@@ -161,7 +177,9 @@ app.post('/users',
             });
     });
 
-/** PUT updated user info */
+/**
+ * @summary PUT updated user info
+ */
 app.put('/users/:Username',
     [
         check('Username', 'Username is required').isLength({ min: 5 }),
@@ -200,7 +218,9 @@ app.put('/users/:Username',
 
     });
 
-/** POST movie to users favorite movies by movie id */
+/**
+ * @summary POST movie to users favorite movies by movie id
+ */
 app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), async (req, res) => {
     await Users.findOneAndUpdate({ Username: req.params.Username }, {
         $push: { FavoriteMovies: req.params.MovieID }
@@ -215,7 +235,9 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { sess
         });
 });
 
-/** DELETE movie from users favorite movies by movie id */
+/**
+ * @summary DELETE movie from users favorite movies by movie id
+ */
 app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), async (req, res) => {
     await Users.findOneAndUpdate({ Username: req.params.Username }, {
         $pull: { FavoriteMovies: req.params.MovieID }
@@ -230,7 +252,9 @@ app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { se
         });
 });
 
-/** DELETE user by username */
+/**
+ * @summary DELETE user by username
+ */
 app.delete('/users/:Username', passport.authenticate('jwt', { session: false }), async (req, res) => {
     if (req.user.Username !== req.params.Username) {
         return res.status(400).send('Permission denied');
