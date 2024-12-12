@@ -7,6 +7,7 @@ A movie API and a server-side application that provides movie and user managemen
 - Button to add or remove movies from favorite movies list
 
 ## Technical Requirements
+- Node.js and npm
 - Express.js
 - MongoDB
 - Passport.js
@@ -24,3 +25,22 @@ A movie API and a server-side application that provides movie and user managemen
 - Update user information: `/users/[Username]/`
 - Add/remove a movie from users favorite movies list: `/users/[Username]/movies/[MovieID]/`
 - Delete user by username: `/users/[Username]/`
+
+## Setup Instructions
+1. Clone the repository
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo-name>.git
+   ```
+2. Navigate into the project directory and install the necessary dependencies
+   ```bash
+   cd <your-repo-name>
+   npm install
+   ```
+3. Run the application locally.
+   ```bash
+   npm start
+   ```
+4. To run tests:
+   ```bash
+   npm test
+   ```
